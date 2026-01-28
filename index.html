@@ -7,35 +7,33 @@
     
     <!-- METADADOS -->
     <meta property="og:title" content="Nails by Laris">
-    <meta property="og:description" content="Unhas Artísticas, Agendamentos e Inspirações.">
+    <meta property="og:description" content="A Nail das Autênticas! Agendamentos e Inspirações.">
     <meta property="og:image" content="hero_laris.jpg">
     <meta property="og:type" content="website">
     
-    <!-- FONTES (Google Fonts) -->
-    <!-- 'Caveat' para um toque manuscrito artístico e 'Manrope' para leitura -->
+    <!-- FONTES -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #d14e52; /* Tom rosado/avermelhado da flor */
-            --accent-color: #f3a642;  /* Tom alaranjado da flor */
-            --text-color: #2c1a1a;    /* Marrom escuro para leitura */
-            --glass-bg: rgba(255, 255, 255, 0.75); /* Fundo branco semitransparente */
-            --btn-bg: rgba(255, 255, 255, 0.9);
+            /* Cores extraídas da identidade */
+            --primary: #ff4757; /* Rosa Avermelhado Vibrante */
+            --accent: #ffa502;  /* Amarelo/Laranja */
+            --text-dark: #2f3542;
+            --white: #ffffff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
         
         body { 
             font-family: 'Manrope', sans-serif; 
-            color: var(--text-color);
-            min-height: 100vh;
-            /* FUNDO FLORAL FIXO */
+            /* FUNDO FLORAL (Tamanho Original - Repetindo) */
             background-image: url('bg_floral.jpg');
-            background-size: cover;
-            background-position: center;
+            background-repeat: repeat; 
+            background-size: 500px; /* Ajuste para a flor não ficar gigante nem minuscula */
             background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
         }
@@ -44,144 +42,146 @@
             width: 100%; 
             max-width: 480px; 
             min-height: 100vh;
-            background: rgba(0, 0, 0, 0.2); /* Leve escurecimento para destacar o conteúdo central */
-            backdrop-filter: blur(3px); /* Desfoque leve no fundo */
-            padding: 40px 20px;
+            /* Fundo branco suave para destacar o conteúdo do floral */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        /* --- HERO (Estilo Erika - Imagem Cheia) --- */
+        .hero {
+            position: relative;
+            height: 420px; /* Altura imponente */
             display: flex;
             flex-direction: column;
+            justify-content: flex-end;
             align-items: center;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
             text-align: center;
-            margin-bottom: 30px;
-            width: 100%;
+            padding-bottom: 40px;
+            overflow: hidden;
+            border-bottom: 4px solid var(--accent); /* Borda colorida embaixo */
         }
 
-        .hero-img-container {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            padding: 5px;
-            /* Gradiente extraído das cores da flor */
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('hero_laris.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            z-index: 0;
         }
 
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
+        .hero-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 60%;
+            /* Degradê para o texto aparecer */
+            background: linear-gradient(to top, rgba(44, 26, 26, 0.95) 15%, transparent 100%);
+            z-index: 1;
+        }
+
+        .hero-content { 
+            position: relative; z-index: 2; width: 100%; padding: 0 20px; 
         }
 
         .title {
-            font-family: 'Caveat', cursive; /* Fonte artística */
-            font-size: 2.8rem;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            color: var(--white);
             margin-bottom: 5px;
             line-height: 1;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         .subtitle {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #fff;
-            background: rgba(0,0,0,0.4);
-            display: inline-block;
+            background: rgba(255, 71, 87, 0.8); /* Fundo rosa no texto */
             padding: 5px 15px;
             border-radius: 20px;
+            display: inline-block;
             margin-bottom: 15px;
-            backdrop-filter: blur(5px);
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .bio-text {
-            color: #fff;
-            font-size: 0.85rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
+        .social-row { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
+        .social-btn { color: #fff; font-size: 1.5rem; transition: 0.3s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        .social-btn:hover { color: var(--accent); transform: scale(1.2); }
 
         /* --- BOTÕES --- */
-        .links-list {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .links-list { padding: 40px 20px; display: flex; flex-direction: column; gap: 18px; }
 
         .btn {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 25px;
-            text-decoration: none;
-            background: var(--glass-bg); /* Efeito vidro */
-            border-radius: 50px; /* Bordas bem redondas */
-            color: var(--text-color);
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
             border: 2px solid rgba(255,255,255,0.5);
-            position: relative;
-            overflow: hidden;
         }
 
         .btn:hover {
-            transform: translateY(-3px) scale(1.02);
+            transform: translateY(-3px);
             background: #fff;
-            box-shadow: 0 8px 25px rgba(243, 166, 66, 0.4); /* Glow laranja */
-            color: var(--primary-color);
         }
 
-        /* Ícones dentro dos botões */
-        .btn i {
-            font-size: 1.4rem;
-        }
-        
-        .btn-icon-right {
-            opacity: 0.5;
-            font-size: 1rem !important;
+        /* Botão NEON (Agende Aqui) */
+        .btn.neon {
+            background: #fff;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            animation: neonPulse 2s infinite alternate; /* Animação de piscar/neon */
         }
 
-        /* Cores específicas para ícones */
-        .fa-whatsapp { color: #25D366; }
-        .fa-spotify { color: #1DB954; }
-        .fa-pinterest { color: #E60023; }
-        .fa-instagram { color: #C13584; }
-
-        /* Botão Destaque (Agenda) */
-        .btn.highlight {
-            background: linear-gradient(135deg, #fff 0%, #fff0e0 100%);
-            border: 2px solid var(--accent-color);
+        @keyframes neonPulse {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 71, 87, 0.2);
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 71, 87, 0.6), 0 0 10px rgba(255, 71, 87, 0.4) inset;
+                transform: scale(1.02);
+                border-color: #ff6b81;
+            }
         }
+
+        .btn i { font-size: 1.4rem; }
+        .btn span { flex-grow: 1; text-align: center; font-family: 'Caveat', cursive; font-size: 1.6rem; }
+
+        /* Ícone na direita pequeno */
+        .arrow { font-size: 1rem !important; opacity: 0.5; }
 
         /* --- FOOTER --- */
         .footer {
             margin-top: auto;
-            padding-top: 40px;
             text-align: center;
+            padding: 30px;
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: #fff;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
         }
         
         .footer a {
-            color: #fff;
-            font-weight: 700;
+            color: var(--accent); /* Cor Laranja Forte */
+            font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
 
-        /* Animação de entrada */
-        .fade-in { animation: fadeIn 1s ease backwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Ícones específicos */
+        .fa-whatsapp { color: #25D366; }
+        .fa-spotify { color: #1DB954; }
+        .fa-pinterest { color: #E60023; }
+        .fa-instagram { color: #C13584; }
 
     </style>
 </head>
@@ -189,63 +189,56 @@
 
     <div class="container">
         
-        <header class="hero fade-in">
-            <div class="hero-img-container">
-                <!-- FOTO GRANDE DELA (input_file_75.jpeg) -->
-                <img src="hero_laris.jpg" alt="Laris" class="hero-img">
+        <header class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                <h1 class="title">Nails by Laris 🌺✨</h1>
+                <div class="subtitle">A Nail das Autênticas 🤘 | Guarulhos - SP</div>
+                
+                <div class="social-row">
+                    <a href="https://www.instagram.com/bylarisnailsart" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
-            
-            <h1 class="title">Nails by Laris 🌺✨</h1>
-            <div class="subtitle">A Nail das Autênticas 🤘 | Guarulhos - SP</div>
-            
-            <p class="bio-text">
-                Unhas Artísticas e Alternativas 🔥<br>
-                Gel • Molde F1 • Nail Arts Exclusivas
-            </p>
         </header>
 
         <div class="links-list">
             
-            <!-- 1. AGENDA (WHATSAPP) -->
-            <!-- Link extraído do botão "Agende Aqui" e do print do WhatsApp -->
-            <a href="https://api.whatsapp.com/send?phone=5511988888888" target="_blank" class="btn highlight fade-in" style="animation-delay: 0.1s;">
-                <span style="display:flex; align-items:center; gap:10px;">
-                    <i class="fab fa-whatsapp"></i> Agende Aqui!
-                </span>
-                <i class="fas fa-calendar-check btn-icon-right"></i>
+            <!-- 1. AGENDA (PISCANDO NEON) -->
+            <!-- Substitua o número do telefone abaixo -->
+            <a href="https://api.whatsapp.com/send?phone=5511988888888" target="_blank" class="btn neon">
+                <i class="fab fa-whatsapp"></i>
+                <span>Agende Aqui!</span>
+                <i class="fas fa-calendar-check arrow"></i>
             </a>
 
             <!-- 2. SPOTIFY -->
-            <!-- Link da playlist do print -->
-            <a href="https://open.spotify.com/playlist/0MI0blHWVEyG30KFhl3cq9" target="_blank" class="btn fade-in" style="animation-delay: 0.2s;">
-                <span style="display:flex; align-items:center; gap:10px;">
-                    <i class="fab fa-spotify"></i> Ouça no Spotify
-                </span>
-                <i class="fas fa-music btn-icon-right"></i>
+            <a href="https://open.spotify.com/playlist/0MI0blHWVEyG30KFhl3cq9" target="_blank" class="btn">
+                <i class="fab fa-spotify"></i>
+                <span>Ouça no Spotify</span>
+                <i class="fas fa-music arrow"></i>
             </a>
 
-            <!-- 3. PINTEREST -->
-            <!-- Link do Board "Inspo Nails" -->
-            <a href="https://br.pinterest.com/bylarisnailsart/inspo-nails/" target="_blank" class="btn fade-in" style="animation-delay: 0.3s;">
-                <span style="display:flex; align-items:center; gap:10px;">
-                    <i class="fab fa-pinterest"></i> Inspirações Nails
-                </span>
-                <i class="fas fa-heart btn-icon-right"></i>
+            <!-- 3. PERFIL PESSOAL -->
+            <a href="https://www.instagram.com/theonelaris/" target="_blank" class="btn">
+                <i class="fab fa-instagram"></i>
+                <span>Perfil Pessoal</span>
+                <i class="fas fa-user arrow"></i>
             </a>
 
-            <!-- 4. PERFIL PESSOAL -->
-            <!-- Link do perfil @theonelaris -->
-            <a href="https://www.instagram.com/theonelaris/" target="_blank" class="btn fade-in" style="animation-delay: 0.4s;">
-                <span style="display:flex; align-items:center; gap:10px;">
-                    <i class="fab fa-instagram"></i> Perfil Pessoal
-                </span>
-                <i class="fas fa-user btn-icon-right"></i>
+            <!-- 4. PINTEREST -->
+            <a href="https://br.pinterest.com/bylarisnailsart/inspo-nails/" target="_blank" class="btn">
+                <i class="fab fa-pinterest"></i>
+                <span>Inspirações Nails</span>
+                <i class="fas fa-heart arrow"></i>
             </a>
 
         </div>
 
-        <div class="footer fade-in" style="animation-delay: 0.5s;">
-            Powered by <a href="https://www.instagram.com/migreagora/" target="_blank">Migre Agora</a>
+        <div class="footer">
+            Powered by <a href="https://www.instagram.com/migreagora/" target="_blank">MIGRE AGORA</a>
         </div>
 
     </div>
