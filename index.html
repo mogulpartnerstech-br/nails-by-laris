@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nails by Laris | Hub Oficial</title>
+    
+    <!-- METADADOS -->
+    <meta property="og:title" content="Nails by Laris">
+    <meta property="og:description" content="Unhas Artísticas, Agendamentos e Inspirações.">
+    <meta property="og:image" content="hero_laris.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- FONTES (Google Fonts) -->
+    <!-- 'Caveat' para um toque manuscrito artístico e 'Manrope' para leitura -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #d14e52; /* Tom rosado/avermelhado da flor */
+            --accent-color: #f3a642;  /* Tom alaranjado da flor */
+            --text-color: #2c1a1a;    /* Marrom escuro para leitura */
+            --glass-bg: rgba(255, 255, 255, 0.75); /* Fundo branco semitransparente */
+            --btn-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            font-family: 'Manrope', sans-serif; 
+            color: var(--text-color);
+            min-height: 100vh;
+            /* FUNDO FLORAL FIXO */
+            background-image: url('bg_floral.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { 
+            width: 100%; 
+            max-width: 480px; 
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.2); /* Leve escurecimento para destacar o conteúdo central */
+            backdrop-filter: blur(3px); /* Desfoque leve no fundo */
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .hero-img-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            padding: 5px;
+            /* Gradiente extraído das cores da flor */
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+
+        .title {
+            font-family: 'Caveat', cursive; /* Fonte artística */
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #fff;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .bio-text {
+            color: #fff;
+            font-size: 0.85rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        /* --- BOTÕES --- */
+        .links-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 25px;
+            text-decoration: none;
+            background: var(--glass-bg); /* Efeito vidro */
+            border-radius: 50px; /* Bordas bem redondas */
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255,255,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(243, 166, 66, 0.4); /* Glow laranja */
+            color: var(--primary-color);
+        }
+
+        /* Ícones dentro dos botões */
+        .btn i {
+            font-size: 1.4rem;
+        }
+        
+        .btn-icon-right {
+            opacity: 0.5;
+            font-size: 1rem !important;
+        }
+
+        /* Cores específicas para ícones */
+        .fa-whatsapp { color: #25D366; }
+        .fa-spotify { color: #1DB954; }
+        .fa-pinterest { color: #E60023; }
+        .fa-instagram { color: #C13584; }
+
+        /* Botão Destaque (Agenda) */
+        .btn.highlight {
+            background: linear-gradient(135deg, #fff 0%, #fff0e0 100%);
+            border: 2px solid var(--accent-color);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer a {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Animação de entrada */
+        .fade-in { animation: fadeIn 1s ease backwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="hero fade-in">
+            <div class="hero-img-container">
+                <!-- FOTO GRANDE DELA (input_file_75.jpeg) -->
+                <img src="hero_laris.jpg" alt="Laris" class="hero-img">
+            </div>
+            
+            <h1 class="title">Nails by Laris 🌺✨</h1>
+            <div class="subtitle">A Nail das Autênticas 🤘 | Guarulhos - SP</div>
+            
+            <p class="bio-text">
+                Unhas Artísticas e Alternativas 🔥<br>
+                Gel • Molde F1 • Nail Arts Exclusivas
+            </p>
+        </header>
+
+        <div class="links-list">
+            
+            <!-- 1. AGENDA (WHATSAPP) -->
+            <!-- Link extraído do botão "Agende Aqui" e do print do WhatsApp -->
+            <a href="https://api.whatsapp.com/send?phone=5511988888888" target="_blank" class="btn highlight fade-in" style="animation-delay: 0.1s;">
+                <span style="display:flex; align-items:center; gap:10px;">
+                    <i class="fab fa-whatsapp"></i> Agende Aqui!
+                </span>
+                <i class="fas fa-calendar-check btn-icon-right"></i>
+            </a>
+
+            <!-- 2. SPOTIFY -->
+            <!-- Link da playlist do print -->
+            <a href="https://open.spotify.com/playlist/0MI0blHWVEyG30KFhl3cq9" target="_blank" class="btn fade-in" style="animation-delay: 0.2s;">
+                <span style="display:flex; align-items:center; gap:10px;">
+                    <i class="fab fa-spotify"></i> Ouça no Spotify
+                </span>
+                <i class="fas fa-music btn-icon-right"></i>
+            </a>
+
+            <!-- 3. PINTEREST -->
+            <!-- Link do Board "Inspo Nails" -->
+            <a href="https://br.pinterest.com/bylarisnailsart/inspo-nails/" target="_blank" class="btn fade-in" style="animation-delay: 0.3s;">
+                <span style="display:flex; align-items:center; gap:10px;">
+                    <i class="fab fa-pinterest"></i> Inspirações Nails
+                </span>
+                <i class="fas fa-heart btn-icon-right"></i>
+            </a>
+
+            <!-- 4. PERFIL PESSOAL -->
+            <!-- Link do perfil @theonelaris -->
+            <a href="https://www.instagram.com/theonelaris/" target="_blank" class="btn fade-in" style="animation-delay: 0.4s;">
+                <span style="display:flex; align-items:center; gap:10px;">
+                    <i class="fab fa-instagram"></i> Perfil Pessoal
+                </span>
+                <i class="fas fa-user btn-icon-right"></i>
+            </a>
+
+        </div>
+
+        <div class="footer fade-in" style="animation-delay: 0.5s;">
+            Powered by <a href="https://www.instagram.com/migreagora/" target="_blank">Migre Agora</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
