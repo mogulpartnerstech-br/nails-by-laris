@@ -17,18 +17,25 @@
     
     <style>
         :root {
-            --primary: #d14e52; /* Cor da Flor (Rosa/Vermelho) */
+            --primary: #d14e52; /* Cor da Flor */
             --accent: #ffa502;  /* Amarelo/Laranja */
             --text-dark: #2f3542;
             --white: #ffffff;
+            
+            /* Nova cor de fundo do Desktop (Salmão/Terracota Suave) */
+            --page-bg-color: #d68c85; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
         
         body { 
             font-family: 'Manrope', sans-serif; 
-            /* FUNDO DA PÁGINA (DESKTOP) - PRETO NEUTRO PARA NÃO POLUIR */
-            background-color: #111;
+            
+            /* FUNDO DA PÁGINA: COR PREDOMINANTE + TEXTURA DE PAPEL */
+            background-color: var(--page-bg-color);
+            background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+            background-attachment: fixed;
+            
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -39,21 +46,22 @@
             max-width: 480px; 
             min-height: 100vh;
             
-            /* A ESTAMPA FLORAL FICA SÓ AQUI DENTRO AGORA */
+            /* ESTAMPA FLORAL (SÓ NO CENTRO) */
             background-image: url('bg_floral.jpg');
             background-repeat: repeat; 
             background-size: 500px;
-            background-attachment: local; /* Rola junto com o conteúdo */
+            background-attachment: local; 
             
             position: relative;
-            box-shadow: 0 0 80px rgba(0,0,0,0.8); /* Sombra forte nas bordas para destacar */
+            /* Sombra suave para destacar o hub do fundo de papel */
+            box-shadow: 0 0 50px rgba(0,0,0,0.4); 
         }
 
-        /* Camada para escurecer levemente a flor e o texto aparecer melhor */
+        /* Camada para suavizar a flor */
         .container::before {
             content: '';
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 240, 240, 0.15); /* Leve tom rosado */
+            background: rgba(255, 240, 240, 0.15);
             backdrop-filter: blur(3px);
             z-index: 0;
             pointer-events: none;
@@ -71,7 +79,7 @@
             padding-bottom: 25px; 
             overflow: hidden;
             border-bottom: 4px solid var(--accent);
-            z-index: 1; /* Fica acima do fundo */
+            z-index: 1; 
         }
 
         .hero-bg {
@@ -84,9 +92,7 @@
 
         .hero-overlay {
             position: absolute; bottom: 0; left: 0; width: 100%; 
-            /* DEGRADÊ MAIS BAIXO (45%) PARA MOSTRAR MAIS A FOTO */
             height: 45%; 
-            /* Cor baseada na identidade (Rosa Escuro) indo para transparente */
             background: linear-gradient(to top, #d14e52 15%, rgba(209, 78, 82, 0.5) 50%, transparent 100%);
             z-index: 1;
         }
@@ -152,7 +158,7 @@
             background: #fff;
         }
 
-        /* Botão NEON (Agende Aqui) */
+        /* Botão NEON */
         .btn.neon {
             background: #fff;
             border: 2px solid var(--primary);
@@ -176,7 +182,7 @@
         .btn span { flex-grow: 1; text-align: center; font-family: 'Caveat', cursive; font-size: 1.6rem; }
         .arrow { font-size: 1rem !important; opacity: 0.5; }
 
-        /* --- FOOTER (RODAPÉ) --- */
+        /* --- FOOTER --- */
         .footer {
             margin-top: auto;
             text-align: center;
@@ -184,19 +190,17 @@
             font-size: 0.75rem;
             color: #fff;
             position: relative; z-index: 1;
-            /* Degradê de fundo sutil para leitura */
             background: linear-gradient(to top, rgba(209, 78, 82, 0.8), transparent);
         }
         
         .footer a {
-            color: var(--primary); /* COR FORTE (Rosa Avermelhado) */
+            color: var(--accent); /* Amarelo/Laranja para contrastar com o fundo rosa */
             font-weight: 900;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-size: 0.95rem;
-            /* EFEITO NEON NO TEXTO */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--primary);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(0,0,0,0.5);
         }
 
         /* Cores Ícones */
